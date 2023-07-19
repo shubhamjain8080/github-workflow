@@ -24,10 +24,8 @@ jobs:
             echo "Nothing is configured"
           fi
   another:
-    needs: [init]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run called.yml
-        uses: ./.github/workflows/called.yml
-        with:
-          environment: ${{ needs.init.outputs.environment }}
+   needs: 
+    init:
+      propagate: true
+   uses: ./.github/workflows/called.yml
+   secrets: inherit
