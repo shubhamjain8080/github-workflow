@@ -1,18 +1,12 @@
 name: Called workflow
 on:
- workflow_run:
-    workflows: ["Caller workflow"]
-    types:
-      - completed
+ workflow_call:
     
 jobs:
   init:
     runs-on: ubuntu-latest
     name: "this is a test"
     steps:
-      - name: "Checkout repository"
-        uses: actions/checkout@v2
-        
       - name: "print"
         run: |
           if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
@@ -24,3 +18,4 @@ jobs:
           else
             echo "Nothing is configured"
           fi
+   
