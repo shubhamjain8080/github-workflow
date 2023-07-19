@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     name: "this is a test"
     steps:
+      - name: "Checkout repository"
+        uses: actions/checkout@v2
+        
       - name: "print"
         run: |
           if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
