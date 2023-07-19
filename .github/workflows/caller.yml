@@ -25,6 +25,7 @@ jobs:
           fi
   another:
     needs:
-      init: propogate
+      init:
+        propogate: true
     uses: ./.github/workflows/called.yml
     secrets: inherit
