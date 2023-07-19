@@ -1,10 +1,14 @@
 name: Called workflow
 on:
-  workflow_call:
+  workflow_run:
+    workflows: ["caller workflow"]
+    types:
+      - completed
     
 jobs:
   init:
     runs-on: ubuntu-latest
+    name: "this is a test"
     steps:
       - name: "print"
         run: |
