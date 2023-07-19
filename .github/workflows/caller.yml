@@ -28,4 +28,4 @@ jobs:
     uses: ./.github/workflows/called.yml
     secrets: inherit
     with:
-      review-requests: "none"
+      review-requests: 0
