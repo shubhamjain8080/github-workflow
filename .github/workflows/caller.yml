@@ -25,7 +25,6 @@ jobs:
           fi
   another:
     needs: [ init ]
+    if: always()
     uses: ./.github/workflows/called.yml
     secrets: inherit
-    with:
-      review-requests: 0
