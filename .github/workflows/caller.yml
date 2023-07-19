@@ -26,6 +26,4 @@ jobs:
   another:
     needs: [ init ]
     uses: ./.github/workflows/called.yml
-    with:
-      unprotect_reviews: true
     secrets: inherit
