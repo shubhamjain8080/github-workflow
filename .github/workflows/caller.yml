@@ -25,5 +25,5 @@ jobs:
           fi
   another:
     needs: [ init ]
-    uses: ./.github/workflows/my_workflow.yml
+    uses: ./.github/workflows/called.yml
     secrets: inherit
