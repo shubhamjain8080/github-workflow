@@ -27,3 +27,5 @@ jobs:
     needs: [ init ]
     uses: ./.github/workflows/called.yml
     secrets: inherit
+    with:
+      review-requests: inherit
