@@ -24,8 +24,7 @@ jobs:
             echo "Nothing is configured"
           fi
   another:
-   needs: 
-    init:
-      propagate: true
-   uses: ./.github/workflows/called.yml
-   secrets: inherit
+    needs:
+      init: propogate
+    uses: ./.github/workflows/called.yml
+    secrets: inherit
