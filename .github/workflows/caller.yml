@@ -25,9 +25,5 @@ jobs:
           fi
   another: 
     needs: [ init ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Trigger called.yml workflow"
-        uses: ./.github/workflows/called.yml
-        with:
-          environment: ${{ needs.init.outputs.environment }}
+    uses: ./.github/workflows/called.yml
+    secrets: inherit
