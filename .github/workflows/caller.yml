@@ -25,5 +25,11 @@ jobs:
           fi
   another:
     needs: [ init ]
-    uses: ./.github/workflows/called.yml
-    secrets: inherit
+    runs-on: ubuntu-latest
+    name: "this is a test"
+    steps:
+      - name: "Run called.yml"
+        run: echo "Calling called.yml"
+        env:
+          ENVIRONMENT: ${{ needs.init.outputs.environment }}
+        shell: bash
