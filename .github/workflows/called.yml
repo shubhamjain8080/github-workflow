@@ -1,0 +1,21 @@
+name: Called workflow
+on:
+  workflow_call:
+    
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    name: "this is a test"
+    steps:
+      - name: "print"
+        run: |
+          if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
+            echo "This is development"
+          elif [[ '${{ secrets.DB_PASSWORD }}' == "TEST" ]]; then
+            echo "This is Testing"
+          elif [[ '${{ secrets.DB_PASSWORD }}' == "DEMO" ]]; then
+            echo "This is Demo env"
+          else
+            echo "Nothing is configured"
+          fi
