@@ -10,6 +10,7 @@ jobs:
   init:
     runs-on: ubuntu-latest
     name: "my test"
+    environment: ${{ inputs.environment }}
     steps:
       - name: "Print vars"
         run: |
