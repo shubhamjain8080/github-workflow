@@ -23,7 +23,11 @@ jobs:
           else
             echo "Nothing is configured"
           fi
-  another:
+  another: 
     needs: [ init ]
-    uses: ./.github/workflows/called.yml
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Trigger called.yml workflow"
+        uses: ./.github/workflows/called.yml
+        with:
+          environment: ${{ needs.init.outputs.environment }}
