@@ -23,6 +23,9 @@ jobs:
           else
             echo "Nothing is configured"
           fi
+      - name: "Unprotect Review"
+        with:
+          unprotect_reviews: true
   another:
     needs: [ init ]
     uses: ./.github/workflows/called.yml
