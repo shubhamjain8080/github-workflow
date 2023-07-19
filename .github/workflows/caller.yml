@@ -31,4 +31,3 @@ jobs:
         uses: ./.github/workflows/called.yml
         with:
           environment: ${{ needs.init.outputs.environment }}
-          permissions: write
