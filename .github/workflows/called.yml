@@ -1,6 +1,6 @@
-name: Called workflow
+name: My workflow
 on:
- workflow_call:
+  workflow_call:
     
 jobs:
   init:
@@ -18,4 +18,3 @@ jobs:
           else
             echo "Nothing is configured"
           fi
-   
