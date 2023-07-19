@@ -25,7 +25,9 @@ jobs:
           fi
   another: 
     needs: [ init ]
-    uses: ./.github/workflows/called.yml
-    secrets: inherit
-    with:
-      review_requested: false
+    runs-on: ubuntu-latest
+    steps: 
+     - name: "Called Workflow"
+       uses: ./.github/workflows/called.yml
+       with:
+        secrets: inherit
