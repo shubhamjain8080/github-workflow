@@ -24,7 +24,7 @@ jobs:
             echo "Nothing is configured"
           fi
       - name: "Wait 5 minutes"
-        uses: actions/wait-timer@v1
+        uses: actions/wait-for@v1
         with:
           seconds: 5
   another: 
