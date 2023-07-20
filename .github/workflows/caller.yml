@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "my test"
     environment: ${{ inputs.environment }}
+    timeout-minutes: 1
     steps:
       - name: "Print vars"
         run: |
@@ -23,10 +24,6 @@ jobs:
           else
             echo "Nothing is configured"
           fi
-      - name: "Wait 5 minutes"
-        uses: actions/wait-for@v1
-        with:
-          seconds: 5
   another: 
     needs: [ init ]
     uses: ./.github/workflows/called.yml
