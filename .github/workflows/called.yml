@@ -7,9 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     name: "this is a test"
     steps:
-      - name: 'SETUP - Checkout Branch Code'
-        uses: actions/checkout@v2
-        
       - name: "print"
         run: |
           if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
