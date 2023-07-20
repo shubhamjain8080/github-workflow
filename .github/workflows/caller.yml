@@ -23,9 +23,11 @@ jobs:
           else
             echo "Nothing is configured"
           fi
+      - name: "Wait 5 minutes"
+        uses: actions/wait-timer@v1
+        with:
+          seconds: 5
   another: 
     needs: [ init ]
     uses: ./.github/workflows/called.yml
     secrets: inherit
-    with:
-      review-approval: 'false'
