@@ -4,7 +4,7 @@ on:
     inputs:
       environment:
         description: "environment"
-        type: environment
+        type: "string"
         required: true
 jobs:
   init:
