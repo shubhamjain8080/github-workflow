@@ -1,6 +1,9 @@
 name: Called workflow
 on:
   workflow_call:
+   secrets:
+      DB_PASSWORD:
+        required: true
     
 jobs:
   init:
@@ -9,11 +12,11 @@ jobs:
     steps:
       - name: "print"
         run: |
-          if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
+          if [[ $DB_PASSWORD == "DEV" ]]; then
             echo "This is development"
-          elif [[ '${{ secrets.DB_PASSWORD }}' == "TEST" ]]; then
+          elif [[ $DB_PASSWORD == "TEST" ]]; then
             echo "This is Testing"
-          elif [[ '${{ secrets.DB_PASSWORD }}' == "DEMO" ]]; then
+          elif [[ $DB_PASSWORD' == "DEMO" ]]; then
             echo "This is Demo env"
           else
             echo "Nothing is configured"
