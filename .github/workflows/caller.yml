@@ -13,16 +13,16 @@ jobs:
     steps:
       - name: "Print vars"
         run: |
-          echo "Current environment: ${{ env.ENVIRONMENT }}"
-          if [ "${{ env.ENVIRONMENT }}" == "dev" ]; then
+          echo "Current environment: ${{ github.event.inputs.environment }}"
+          if [ "${{ github.event.inputs.environment }}" == "dev" ]; then
             echo "Performing actions specific to dev environment..."
             # Add your dev-specific actions here
-          elif [ "${{ env.ENVIRONMENT }}" == "test" ]; then
+          elif [ "${{ github.event.inputs.environment }}" == "test" ]; then
             echo "Performing actions specific to test environment..."
             # Add your test-specific actions here
-          elif [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+          elif [ "${{ github.event.inputs.environment }}" == "prod" ]; then
             echo "Performing actions specific to prod environment..."
             # Add your prod-specific actions here
           else
-            echo "Unsupported environment: ${{ env.ENVIRONMENT }}"
+            echo "Unsupported environment: ${{ github.event.inputs.environment }}"
           fi
