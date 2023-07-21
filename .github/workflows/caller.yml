@@ -13,6 +13,7 @@ jobs:
     steps:
      - name: EnvVar
        run: |
+        current_environment="${{ github.event.inputs.environment }}"
         name=$(echo "${{ vars.SIZE_VAR }}" | jq -r ".[\"$current_environment\"]")
         echo "jsonData: $name"
 
