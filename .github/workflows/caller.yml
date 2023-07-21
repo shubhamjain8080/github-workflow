@@ -19,7 +19,7 @@ jobs:
          content="${content//$'\n'/'%0A'}"
          content="${content//$'\r'/'%0D'}"
          echo "Content: $content"
-         echo "::set-output name=changelog::$(echo "$content")"
+         echo "::set-output name=changelog::$content"
      - name: EnvVal
        run: |
          echo "The string is: ${{ steps.EnvVar.outputs.changelog }}"
