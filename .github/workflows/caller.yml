@@ -17,7 +17,7 @@ jobs:
         relevant_data=$(echo "${{ vars.SIZE_VAR }}" | jq -r ".[\"$current_environment\"]")
         echo -e "jsonData: $relevant_data"
         echo "RELEVANT_DATA<<EOF" >> $GITHUB_OUTPUT
-        echo "$relevant_data" >> $GITHUB_ENV
+        echo "$relevant_data" >> $GITHUB_OUTPUT
         echo 'EOF' >> $GITHUB_OUTPUT
 
         
