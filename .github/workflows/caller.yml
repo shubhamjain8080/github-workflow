@@ -16,7 +16,7 @@ jobs:
           
      - name: Set up environment variables
        run: |
-          extracted_value=$(echo ${{ vars.SIZE_VAR }} | jq -r '.Dev')
+          extracted_value=$(echo "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
           echo "Extracted value: $extracted_value"
 
 
