@@ -19,6 +19,8 @@ jobs:
          content="${content//$'\n'/'%0A'}"
          content="${content//$'\r'/'%0D'}"
          echo "Content: $content"
+         n_rules=$(echo $content | jq '.Dev')
+         echo "Dev: $n_rules"
 
 
 
