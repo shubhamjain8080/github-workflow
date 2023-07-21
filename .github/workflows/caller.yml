@@ -14,6 +14,6 @@ jobs:
      - name: Set up environment variables
        run: |
           env_data_json=${{ fromJson(vars.SIZE_VAR).Dev }}
-          echo "Rele : $env_data_json"
+          echo "Rele : $env_data_json[0]"
 
 
