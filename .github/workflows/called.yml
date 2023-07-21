@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: "print"
         run: |
+          echo Password is $DB_PASSWORD
           if [[ $DB_PASSWORD == "DEV" ]]; then
             echo "This is development"
           elif [[ $DB_PASSWORD == "TEST" ]]; then
