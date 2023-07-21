@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     name: "my test"
     steps:
+     - name: Set up jq
+       run: sudo apt-get update && sudo apt-get install -y jq
+          
      - name: Set up environment variables
        run: |
           env_data_json="${{ toJson(vars.SIZE_VAR) }}"
           echo "Rele : $env_data_json"
-          KEY1_VAR=$(echo "${{ toJson(vars.SIZE_VAR) }}" | jq -r '.Dev')
-          echo "C : $KEY1_VAR"
+          extracted_value=$(echo ${{ secrets.SIZE_VAR }} | jq -r '.Dev')
+          echo "Extracted value: $extracted_value"
 
 
