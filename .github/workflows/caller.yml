@@ -16,6 +16,7 @@ jobs:
         current_environment="${{ github.event.inputs.environment }}"
         name=$(echo "${{ vars.SIZE_VAR }}" | jq -r ".[\"$current_environment\"]")
         echo "jsonData: $name"
+        echo "export RELEVANT_DATA='$name'" >> $GITHUB_ENV
 
 
 
