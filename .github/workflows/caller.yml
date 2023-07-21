@@ -13,10 +13,11 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-         content = "${{ toJson(vars.SIZE_VAR) }}"
+         content=${{ vars.SIZE_VAR }}
          content="${content//'%'/'%25'}"
          content="${content//$'\n'/'%0A'}"
          content="${content//$'\r'/'%0D'}"
+         echo "Content: $content"
          n_rules=$(cat content | jq '.Dev')
          echo "Dev: $n_rules"
 
