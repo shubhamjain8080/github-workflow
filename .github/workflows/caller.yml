@@ -13,8 +13,8 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-         content=${{ vars.SIZE_VAR }}
-         echo "Content: $content"
+         content="${{ vars.SIZE_VAR }}"
+         echo "Rele : $content"
          content="${content//'%'/'%25'}"
          content="${content//$'\n'/'%0A'}"
          content="${content//$'\r'/'%0D'}"
