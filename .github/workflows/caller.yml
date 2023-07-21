@@ -13,16 +13,9 @@ jobs:
     steps:
      - name: EnvVar
        run: |
-         content="${{ vars.SIZE_VAR }}"
-         echo "Rele : $content"
-         content="${content//'%'/'%25'}"
-         content="${content//$'\n'/'%0A'}"
-         content="${content//$'\r'/'%0D'}"
-         echo "Content: $content"
-         echo "::set-output name=changelog::$content"
-     - name: EnvVal
-       run: |
-         echo "The string is: ${{ steps.EnvVar.outputs.changelog }}"
+          jsonData=$(printf '%s' "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
+          echo "jsonData: $jsonData"
+
 
 
 
