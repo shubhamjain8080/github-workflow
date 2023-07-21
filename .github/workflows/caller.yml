@@ -18,7 +18,7 @@ jobs:
           
           current_environment="${{ github.event.inputs.environment }}"
           env_data_json_str=$(echo $env_data_json | jq -c)
-          KEY1_VAR=$(echo $env_data_json | jq -r '.Dev')
+          KEY1_VAR=$(echo $env_data_json_str | jq -r '.Dev')
           echo "C : $KEY1_VAR"
 
 
