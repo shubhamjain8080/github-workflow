@@ -13,7 +13,8 @@ jobs:
     steps:
      - name: EnvVar
        run: |
-        jsonData=$(echo -e "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
+        echo "${{ vars.SIZE_VAR }}" > data.json
+        name=$(cat data.json | jq -r '.Dev')
 
 
 
