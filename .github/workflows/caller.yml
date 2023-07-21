@@ -13,7 +13,7 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-          env_data_json=${{ secrets.SIZE_VAR }}
+          env_data_json=${{ vars.SIZE_VAR }}
           echo "Rele : $env_data_json"
           
           current_environment="${{ github.event.inputs.environment }}"
