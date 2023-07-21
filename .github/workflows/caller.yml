@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: "my test"
     steps:
-     - name: Set up environment variables
+     - name: EnvVar
        run: |
          content="${{ vars.SIZE_VAR }}"
          echo "Rele : $content"
@@ -20,9 +20,10 @@ jobs:
          content="${content//$'\r'/'%0D'}"
          echo "Content: $content"
          echo "::set-output name=changelog::$(echo "$content")"
-         echo "Content: $content"
-         n_rules=$(echo "$content" | jq -r '.Dev')
-         echo "Dev: $n_rules"
+     - name: EnvVal
+       run: |
+         echo "The string is: ${{ steps.EnvVar.outputs.changelog }}"
+
 
 
 
