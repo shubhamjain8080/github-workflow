@@ -20,8 +20,8 @@ jobs:
          content="${content//$'\r'/'%0D'}"
          echo "Content: $content"
          echo "::set-output name=changelog::$(echo "$content")"
-         echo "Content: $changeLog"
-         n_rules=$(echo "$changelog" | jq -r '.Dev')
+         echo "Content: $content"
+         n_rules=$(echo "$content" | jq -r '.Dev')
          echo "Dev: $n_rules"
 
 
