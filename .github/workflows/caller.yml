@@ -17,6 +17,6 @@ jobs:
           echo "Rele : $env_data_json"
           
           current_environment="${{ github.event.inputs.environment }}"
-          n_rules=$(cat env_data_json | jq 'Dev')
+          n_rules=$(cat env_data_json | jq -r "Dev")
           echo "N : $n_rules"
 
