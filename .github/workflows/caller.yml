@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     name: "my test"
     steps:
-     - name: Set up environment variables
+     - name: EnvVar
        run: |
-          current_environment="${{ github.event.inputs.environment }}"
-          echo "Current_Env : $current_environment"
-          relevant_data=$(echo "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
-          
+        name=$(echo "${{ vars.SIZE_VAR }}" | jq -r ".[\"$current_environment\"]")
+        echo "jsonData: $name"
+
+
+
+
+
