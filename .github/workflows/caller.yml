@@ -16,7 +16,10 @@ jobs:
         current_environment="${{ github.event.inputs.environment }}"
         relevant_data=$(echo "${{ vars.SIZE_VAR }}" | jq -r ".[\"$current_environment\"]")
         echo -e "jsonData: $relevant_data"
-        echo -e "RELEVANT_DATA='$relevant_data'" >> $GITHUB_ENV
+        echo "RELEVANT_DATA<<$EOF" >> $GITHUB_OUTPUT
+        echo "$relevant_data'" >> $GITHUB_ENV
+        echo "$EOF" >> $GITHUB_OUTPUT
+
         
      - name: Display RELEVANT_DATA environment variable
        run: |
