@@ -14,7 +14,7 @@ jobs:
      - name: Set up environment variables
        run: |
           # Export SIZE_VAR as a single-line JSON string to preserve the content
-          echo "export SIZE_VAR='${{ replace(vars.SIZE_VAR, '\n', '\\n') }}'" >> $GITHUB_ENV
+          export SIZE_VAR=$(echo "${{ vars.SIZE_VAR }}" | tr -d '\n' | sed 's/"/\\"/g')
 
           # Use a simple Bash script to extract the relevant data based on the current environment
           current_environment="${{ github.event.inputs.environment }}"
