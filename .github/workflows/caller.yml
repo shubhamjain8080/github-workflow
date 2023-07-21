@@ -13,10 +13,7 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-          env_data_json="${{ fromJson(vars.SIZE_VAR) }}"
+          env_data_json="${{ toJson(fromJson(vars.SIZE_VAR)) }}"
           echo "Rele : $env_data_json"
-          
-          DEV_ARRAY=$(echo "${{ fromJson(vars.SIZE_VAR) }}" | python -c 'import sys, json; print(json.loads(sys.stdin.read())["Dev"])')
-          echo "C : $DEV_ARRAY"
 
 
