@@ -10,24 +10,19 @@ jobs:
   init:
     runs-on: ubuntu-latest
     name: "my test"
-    environment: ${{ inputs.environment }}
-    timeout-minutes: 1
     steps:
       - name: "Print vars"
         run: |
-          if [[ '${{ secrets.DB_PASSWORD }}' == "DEV" ]]; then
-            echo "This is development"
-          elif [[ '${{ secrets.DB_PASSWORD }}' == "TEST" ]]; then
-            echo "This is Testing"
-          elif [[ '${{ secrets.DB_PASSWORD }}' == "DEMO" ]]; then
-            echo "This is Demo env"
+          echo "Current environment: ${{ env.ENVIRONMENT }}"
+          if [ "${{ env.ENVIRONMENT }}" == "dev" ]; then
+            echo "Performing actions specific to dev environment..."
+            # Add your dev-specific actions here
+          elif [ "${{ env.ENVIRONMENT }}" == "test" ]; then
+            echo "Performing actions specific to test environment..."
+            # Add your test-specific actions here
+          elif [ "${{ env.ENVIRONMENT }}" == "prod" ]; then
+            echo "Performing actions specific to prod environment..."
+            # Add your prod-specific actions here
           else
-            echo "Nothing is configured"
+            echo "Unsupported environment: ${{ env.ENVIRONMENT }}"
           fi
-  another: 
-    needs: [ init ]
-    uses: ./.github/workflows/called.yml
-    with:
-      environment: ${{ inputs.environment }}
-    secrets:
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
