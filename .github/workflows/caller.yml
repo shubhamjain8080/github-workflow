@@ -13,8 +13,12 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-         dev_data=$(jq '.Dev' < "${{ toJson(vars.SIZE_VAR) }}" )
-         echo "Dev: $dev_data"
+         content = "${{ toJson(vars.SIZE_VAR) }}"
+         content="${content//'%'/'%25'}"
+         content="${content//$'\n'/'%0A'}"
+         content="${content//$'\r'/'%0D'}"
+         n_rules=$(cat content | jq '.Dev')
+         echo "Dev: $n_rules"
 
 
 
