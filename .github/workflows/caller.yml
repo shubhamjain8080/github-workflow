@@ -16,7 +16,7 @@ jobs:
           env_data_json="${{ vars.SIZE_VAR }}"
           echo "Rele : $env_data_json"
           
-          DEV_ARRAY=$(echo "${{ env_data_json }}" | python -c 'import sys, json; print(json.loads(sys.stdin.read())["Dev"])')
+          DEV_ARRAY=$(echo "$env_data_json" | python -c 'import sys, json; print(json.loads(sys.stdin.read())["Dev"])')
           echo "C : $DEV_ARRAY"
 
 
