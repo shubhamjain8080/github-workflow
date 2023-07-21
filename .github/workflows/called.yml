@@ -16,7 +16,7 @@ jobs:
             echo "This is development"
           elif [[ $DB_PASSWORD == "TEST" ]]; then
             echo "This is Testing"
-          elif [[ $DB_PASSWORD' == "DEMO" ]]; then
+          elif [[ $DB_PASSWORD == "DEMO" ]]; then
             echo "This is Demo env"
           else
             echo "Nothing is configured"
