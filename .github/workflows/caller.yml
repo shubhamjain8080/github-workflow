@@ -27,6 +27,5 @@ jobs:
   another: 
     needs: [ init ]
     uses: ./.github/workflows/called.yml
-    with:
-      environment: ${{ inputs.environment }}
-    secrets: inherit
+    secrets:
+      PASSWORD: ${{ secrets.DB_PASSWORD }}
