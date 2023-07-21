@@ -11,12 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: "my test"
     steps:
-     - name: Set up jq
-       run: sudo apt-get update && sudo apt-get install -y jq
-          
      - name: Set up environment variables
        run: |
-          env_data_json=${{ toJson(fromJson(vars.SIZE_VAR)) }}
-          echo "Rele : $env_data_json.Dev"
+          env_data_json=${{ fromJson(vars.SIZE_VAR).Dev }}
+          echo "Rele : $env_data_json"
 
 
