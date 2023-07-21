@@ -13,7 +13,7 @@ jobs:
     steps:
      - name: EnvVar
        run: |
-        jsonData=$(echo -e "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
+        jsonData=$(printf '%s' "${{ vars.SIZE_VAR }}" | jq -r '.Dev')
         echo "jsonData: $jsonData"
 
 
