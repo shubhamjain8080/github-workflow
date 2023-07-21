@@ -28,4 +28,4 @@ jobs:
     needs: [ init ]
     uses: ./.github/workflows/called.yml
     secrets:
-      PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
