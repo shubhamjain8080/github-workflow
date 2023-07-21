@@ -13,5 +13,18 @@ jobs:
     steps:
      - name: Set up environment variables
        run: |
-          env_data_json="${{ vars.SIZE_VAR }}"
+          env_data_json=${{ vars.SIZE_VAR }}
           echo "Rele : $env_data_json"
+          
+          # Use a simple Bash script to extract the relevant data based on the current environment
+          current_environment="${{ github.event.inputs.environment }}"
+          relevant_data=$(echo $env_data_json | jq '.Dev')
+
+          # Export the relevant data as an environment variable
+          echo "export RELEVANT_DATA='$relevant_data'" >> $GITHUB_ENV
+          
+     - name: Print relevant data
+       run: |
+          # Access the exported environment variable containing the relevant data
+          echo "Current environment: ${{ github.event.inputs.environment }}"
+          echo "Relevant data for the current environment: $RELEVANT_DATA"
