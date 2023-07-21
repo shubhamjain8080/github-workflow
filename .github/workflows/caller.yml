@@ -16,8 +16,6 @@ jobs:
           
      - name: Set up environment variables
        run: |
-          env_data_json="${{ toJson(vars.SIZE_VAR) }}"
-          echo "Rele : $env_data_json"
           extracted_value=$(echo ${{ vars.SIZE_VAR }} | jq -r '.Dev')
           echo "Extracted value: $extracted_value"
 
